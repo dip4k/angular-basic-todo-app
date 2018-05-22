@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": 2,
+      "title": "Clean inbox",
+      "complete": true
+    },
+    {
+      "id": 3,
+      "title": "Make restaurant reservation",
+      "complete": true
+    },
+    {
+      "title": "look who is here!!",
+      "complete": true,
+      "id": 4
+    },
+    {
+      "title": "angular input method",
+      "complete": false,
+      "id": 5
+    }
+  ]
+}

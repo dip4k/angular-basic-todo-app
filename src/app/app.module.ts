@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { TodoDataService } from './services/todo-data.service';
+import { ApiService } from './services/api.service';
 
 import { AppComponent } from './app.component';
 import { TodoListHeaderComponent } from './todoListComponents/todo-list-header/todo-list-header.component';
@@ -11,9 +13,15 @@ import { TodoListItemComponent } from './todoListComponents/todo-list-item/todo-
 import { TodoListFooterComponent } from './todoListComponents/todo-list-footer/todo-list-footer.component';
 
 @NgModule({
-  declarations: [AppComponent, TodoListHeaderComponent, TodoListComponent, TodoListItemComponent, TodoListFooterComponent],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule],
-  providers: [TodoDataService],
+  declarations: [
+    AppComponent,
+    TodoListHeaderComponent,
+    TodoListComponent,
+    TodoListItemComponent,
+    TodoListFooterComponent
+  ],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  providers: [TodoDataService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

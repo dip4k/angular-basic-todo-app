@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { TodoDataService } from './services/todo-data.service';
 import { Todo } from './todo';
@@ -8,35 +8,34 @@ import { Todo } from './todo';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
-  // No longer needed, now handled by TodoListHeaderComponent
-  // newTodo: Todo = new Todo();
+
+  todos: Todo[] = [];
 
   constructor(private todoDataService: TodoDataService) {}
 
-  // No longer needed, now handled by TodoListHeaderComponent
-  // addTodo() {
-  //   this.todoDataService.addTodo(this.newTodo);
-  //   this.newTodo = new Todo();
-  // }
-
-  // Add new method to handle event emitted by TodoListHeaderComponent
-  onAddTodo(todo: Todo) {
-    this.todoDataService.addTodo(todo);
+  ngOnInit(): void {
+    this.todoDataService.getAllTodos().subscribe((todos) => {
+      this.todos = todos;
+    });
   }
 
-  // rename from toggleTodoComplete
-  onToggleTodoComplete(todo: Todo) {
-    this.todoDataService.toggleTodoComplete(todo);
+  onAddTodo(todo) {
+    this.todoDataService.addTodo(todo).subscribe((newTodo) => {
+      this.todos.push(newTodo);
+    });
   }
 
-  // rename from removeTodo
-  onRemoveTodo(todo: Todo) {
-    this.todoDataService.deleteTodoById(todo.id);
+  onToggleTodoComplete(todo) {
+    this.todoDataService.toggleTodoComplete(todo).subscribe((updatedTodo) => {
+      todo = updatedTodo;
+    });
   }
 
-  get todos() {
-    return this.todoDataService.getAllTodos();
+  onRemoveTodo(todo) {
+    this.todoDataService.deleteTodoById(todo.id).subscribe((_) => {
+      this.todos = this.todos.filter((t) => t.id !== todo.id);
+    });
   }
 }
