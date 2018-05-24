@@ -9,6 +9,7 @@ import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { SessionService } from './session.service';
+import { User } from '../models/user';
 
 import { environment } from '../../environments/environment';
 import { Todo } from './../todo';
@@ -17,11 +18,12 @@ const API_URL = environment.apiUrl;
 
 @Injectable()
 export class ApiService {
-  constructor(private http: HttpClient, private session: SessionService) {}
+  // constructor(private http: HttpClient, private session: SessionService) {}
+  constructor(private http: HttpClient) {}
 
   public signIn(username: string, password: string) {
     return this.http
-      .post<SessionService>(API_URL + '/sign-in', {
+      .post<User>(API_URL + '/sign-in', {
         username,
         password
       })
@@ -95,8 +97,11 @@ export class ApiService {
     //   Authorization: 'Bearer ' + this.session.accessToken
     // });
 
+    // return {
+    //   headers: { Auth: 'Bearer ' + this.session.accessToken }
+    // };
     return {
-      headers: { Auth: 'Bearer ' + this.session.accessToken }
+      headers: { Auth: 'Bearer ' + sessionStorage.getItem('accessToken') }
     };
   }
 }

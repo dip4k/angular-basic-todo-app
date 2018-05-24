@@ -5,22 +5,40 @@ import { SessionService } from './session.service';
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private session: SessionService) {}
+  // constructor(private session: SessionService) {}
+
+  // public isSignedIn() {
+  //   return !!this.session.accessToken;
+  // }
+
+  // public doSignOut() {
+  //   this.session.destroy();
+  // }
+
+  // public doSignIn(accessToken: string, name: string) {
+  //   if (!accessToken || !name) {
+  //     return false;
+  //   }
+  //   this.session.accessToken = accessToken;
+  //   this.session.name = name;
+  //   return true;
+  // }
+  constructor() {}
 
   public isSignedIn() {
-    return !!this.session.accessToken;
+    return !!sessionStorage.getItem('accessToken');
   }
 
   public doSignOut() {
-    this.session.destroy();
+    sessionStorage.clear();
   }
 
   public doSignIn(accessToken: string, name: string) {
     if (!accessToken || !name) {
       return false;
     }
-    this.session.accessToken = accessToken;
-    this.session.name = name;
+    sessionStorage.setItem('accessToken', accessToken);
+    sessionStorage.setItem('name', name);
     return true;
   }
 }

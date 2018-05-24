@@ -12,13 +12,18 @@
     },
     {
       "title": "angular input method",
-      "complete": false,
+      "complete": true,
       "id": 5
     },
     {
       "title": "auth is imp",
       "complete": true,
       "id": 6
+    },
+    {
+      "title": "This is made using sessionStorage",
+      "complete": false,
+      "id": 7
     }
   ]
 }
