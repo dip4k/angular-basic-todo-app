@@ -22,7 +22,7 @@ server.post('/sign-in', (req, res) => {
 
   if (username === 'demo' && password === 'demo') {
     return res.json({
-      name: 'SitePoint Reader',
+      name: 'Dipak Chauhan',
       accessToken: jwtToken
     });
   }
@@ -45,7 +45,7 @@ server.use(router);
 
 // Start server
 server.listen(3000, () => {
-  console.log('JSON Server is running');
+  console.log('JSON Server is running on port 3000...');
 });
 
 // Check whether request is allowed
