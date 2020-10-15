@@ -18,6 +18,7 @@ import { TodoListFooterComponent } from './todoListComponents/todo-list-footer/t
 import { TodosComponent } from './todoComponents/todos/todos.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { SignInComponent } from './users/sign-in/sign-in.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { SignInComponent } from './users/sign-in/sign-in.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule, ReactiveFormsModule
+    AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule
   ],
   providers: [TodoDataService, ApiService, SessionService, AuthService],
   bootstrap: [AppComponent]

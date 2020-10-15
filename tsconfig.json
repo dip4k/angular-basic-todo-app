@@ -5,16 +5,17 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ]
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "types": ["node"],
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2015",
+    "paths": {
+      "exceljs": ["node_modules/exceljs/dist/exceljs.min"]
+    }
   }
 }

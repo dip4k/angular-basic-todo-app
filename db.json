@@ -24,6 +24,11 @@
       "title": "This is made using sessionStorage",
       "complete": false,
       "id": 7
+    },
+    {
+      "title": "",
+      "complete": false,
+      "id": 8
     }
   ]
 }
