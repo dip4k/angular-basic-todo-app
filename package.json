@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "json-server": "nodemon json-server"
+    "dbServer":"npm run json-server",
+    "json-server": "nodemon json-server.mjs"
   },
   "private": true,
   "dependencies": {
