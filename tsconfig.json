@@ -9,13 +9,14 @@
     "experimentalDecorators": true,
     "module": "es2020",
     "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
+    "lib": ["es2017", "dom", "esnext", "ESNext.AsyncIterable"],
     "types": ["node"],
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2015",
     "paths": {
-      "exceljs": ["node_modules/exceljs/dist/exceljs.min"]
+      "exceljs": ["node_modules/exceljs/dist/exceljs.min"],
+      "core-js/es7/reflect": ["node_modules/core-js/proposals/reflect-metadata"]
     }
   }
 }

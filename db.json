@@ -21,14 +21,9 @@
       "id": 6
     },
     {
-      "title": "This is made using sessionStorage",
+      "title": "updated to angular v 10",
       "complete": false,
       "id": 7
-    },
-    {
-      "title": "",
-      "complete": false,
-      "id": 8
     }
   ]
 }
